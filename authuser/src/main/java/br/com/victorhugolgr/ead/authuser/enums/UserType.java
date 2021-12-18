@@ -1,4 +1,4 @@
-package br.com.victorhugolgr.ead.authuser.enus;
+package br.com.victorhugolgr.ead.authuser.enums;
 
 public enum UserType {
     ADMIN,
