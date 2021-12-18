@@ -1,7 +1,7 @@
 package br.com.victorhugolgr.ead.authuser.models;
 
-import br.com.victorhugolgr.ead.authuser.enus.UserStatus;
-import br.com.victorhugolgr.ead.authuser.enus.UserType;
+import br.com.victorhugolgr.ead.authuser.enums.UserStatus;
+import br.com.victorhugolgr.ead.authuser.enums.UserType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
