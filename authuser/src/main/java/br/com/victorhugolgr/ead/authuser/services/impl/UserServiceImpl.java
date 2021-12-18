@@ -3,6 +3,7 @@ package br.com.victorhugolgr.ead.authuser.services.impl;
 import br.com.victorhugolgr.ead.authuser.models.UserModel;
 import br.com.victorhugolgr.ead.authuser.repository.UserRepository;
 import br.com.victorhugolgr.ead.authuser.services.UserService;
+import br.com.victorhugolgr.ead.authuser.specifications.SpecificationTemplate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -44,6 +45,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
+    }
+
+    @Override
+    public Page<UserModel> findAll(SpecificationTemplate.UserSpec spec, Pageable pageable) {
+        return userRepository.findAll(spec, pageable);
     }
 
 }

@@ -1,6 +1,8 @@
 package br.com.victorhugolgr.ead.authuser.services;
 
 import br.com.victorhugolgr.ead.authuser.models.UserModel;
+import br.com.victorhugolgr.ead.authuser.specifications.SpecificationTemplate;
+import org.apache.catalina.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -20,4 +22,6 @@ public interface UserService {
     boolean existsByUserName(String username);
 
     boolean existsByEmail(String email);
+
+    Page<UserModel> findAll(SpecificationTemplate.UserSpec spec, Pageable pageable);
 }

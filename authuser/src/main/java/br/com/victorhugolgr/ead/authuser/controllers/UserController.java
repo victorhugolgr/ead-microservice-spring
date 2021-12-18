@@ -3,6 +3,7 @@ package br.com.victorhugolgr.ead.authuser.controllers;
 import br.com.victorhugolgr.ead.authuser.dtos.UserDto;
 import br.com.victorhugolgr.ead.authuser.models.UserModel;
 import br.com.victorhugolgr.ead.authuser.services.UserService;
+import br.com.victorhugolgr.ead.authuser.specifications.SpecificationTemplate;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -30,8 +31,9 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public ResponseEntity<Page<UserModel>> getAllUsers(Pageable pageable) {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.findAll(pageable));
+    public ResponseEntity<Page<UserModel>> getAllUsers(SpecificationTemplate.UserSpec spec,
+                                                       Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(userService.findAll(spec, pageable));
     }
 
     @GetMapping("/{userId}")
