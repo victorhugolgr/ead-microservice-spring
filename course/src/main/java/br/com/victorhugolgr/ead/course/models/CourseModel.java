@@ -49,7 +49,7 @@ public class CourseModel implements Serializable {
     private UUID userInstructor;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "course", orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "course", orphanRemoval = true)
     @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleModel> modules;
 }
