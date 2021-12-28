@@ -4,13 +4,14 @@ import br.com.victorhugolgr.ead.course.enums.CourseLevel;
 import br.com.victorhugolgr.ead.course.enums.CourseStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -44,4 +45,8 @@ public class CourseModel implements Serializable {
     private CourseLevel courseLevel;
     @Column(nullable = false)
     private UUID userInstructor;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "course", orphanRemoval = true)
+    private Set<ModuleModel> modules;
 }
